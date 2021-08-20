@@ -1,0 +1,14 @@
+name: Deploy to Deta
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_ACCESS_TOKEN }}
+          deta-name: 'flask-deta' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
+          deta-project: 'flask-test' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
+          
