@@ -1,0 +1,10 @@
+rules:
+  - id: simple-deta-sh-api-key-rule
+    languages:
+      - python
+    message: Hardcoded Deta.sh API key will result in unauthorised usage through
+      public exposure.
+    patterns:
+      - pattern-inside: Deta('...')
+      - pattern-regex: "[a-zA-Z0-9\_]+"
+    severity: ERROR

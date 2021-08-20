@@ -1,0 +1,13 @@
+rules:
+  - id: improved-deta-sh-api-key-rule
+    languages:
+      - python
+    message: Hardcoded Deta.sh API key will result in unauthorised usage through
+      public exposure.
+    patterns:
+      - pattern: $X = deta.Deta("$KEY")
+      - pattern-not: $X.$MOD(...) # This will ignore any other occurances using the deta.Deta() instances
+      - metavariable-regex:
+          metavariable: $KEY
+          regex: '[a-zA-Z0-9\_]+'
+    severity: ERROR
