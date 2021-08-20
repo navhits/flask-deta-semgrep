@@ -4,6 +4,14 @@ on:
     branches:
     - main
     - master
+    paths-ignore:
+      - '.github/workflows/semgrep_manual.yml'
+      - '.github/workflows/deploy.yml'
+      - 'rules'
+      - '.detaignore'
+      - '.gitignore'
+      - 'README.md'
+
 name: Semgrep for Pull Requests and Push events
 jobs:
   semgrep:
